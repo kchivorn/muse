@@ -1,0 +1,24 @@
+!!! 5
+%html
+%head
+  %title Forum
+  = csrf_meta_tags
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+%body
+  %header.main_header.clearfix
+    .wrapper
+      #logo
+        %p= link_to 'All Post', root_path
+      #buttons
+        -if user_signed_in?
+          = link_to "New Post", new_post_path
+        - else
+          = link_to 'Log in', new_user_session_path
+          = link_to 'Register', new_user_registration_path
+  .wrapper
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: "alert alert-#{name}"
+  .wrapper
+    = yield
