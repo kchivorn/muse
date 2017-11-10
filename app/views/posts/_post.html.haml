@@ -1,7 +1,9 @@
 %p= link_to image_tag(post.image.url(:thumb)), post
 %h2= link_to post.title, post
 %p
-= pluralize(post.comments.count, 'comment')
+  = pluralize(post.comments.count, 'comment')
+%p
+  = pluralize(post.get_upvotes.size, 'Like')
 %p
   Submitted
   = time_ago_in_words(post.created_at)

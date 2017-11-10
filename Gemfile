@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'devise', '~> 4.3'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'acts_as_votable', '~> 0.11.1'
 
 group :development, :test do
   gem 'pry-byebug'
