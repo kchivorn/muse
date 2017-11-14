@@ -1,5 +1,15 @@
-%h1 Index
-
-= render @posts
-
-= link_to 'New Post', new_post_path
+- if user_signed_in?
+  %p#intro
+  Hello
+  = current_user.name
+  %br/
+  %span
+    Share your inspiration and see what's inspiring others.
+- else
+  %p#intro
+    What's your muse?
+    %br/
+    %span
+      Share your inspiration and see what's inpiring others.
+#posts
+  = render @posts
