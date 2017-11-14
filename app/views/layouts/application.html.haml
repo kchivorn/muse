@@ -7,13 +7,14 @@
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 %body
-  %header.main_header.clearfix
-    .wrapper
+  %header
+    .wrapper.clearfix
       #logo
-        %p= link_to 'All Post', root_path
-      #buttons
+        %p= link_to 'Muse', root_path
+      %nav
         -if user_signed_in?
-          = link_to "New Post", new_post_path
+          = link_to current_user.name, edit_user_registration_path
+          = link_to "Add New Inspiration", new_post_path
         - else
           = link_to 'Log in', new_user_session_path
           = link_to 'Register', new_user_registration_path
